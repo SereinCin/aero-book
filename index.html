@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aero Programming Language — Official Book &amp; Documentation</title>
+<meta name="description" content="The Aero programming language book — a complete tutorial for the systems language with Python ergonomics and C++ speed. Covers variables, types, generics, borrow checker, Arena memory management, tensor/AI matrix support, FFI calling C, file IO, CLI arguments, package manager, and LLVM compilation pipeline.">
+<meta name="keywords" content="Aero, Aero language, Aero programming language, systems programming language, LLVM compiler, borrow checker, Arena memory, statically typed, JIT, AOT, type inference, no garbage collection, no GC, C alternative, Rust alternative, Python speed, native tensor, matrix multiplication, AI programming, FFI, C interop, package manager, Windows programming, MinGW, programming tutorial, beginner programming book, compiler development">
+<meta name="author" content="Serein">
+<meta name="robots" content="index, follow, archive, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Aero Programming Language — Official Book &amp; Documentation">
+<meta property="og:description" content="Learn the Aero systems programming language. 18-chapter tutorial: borrow checker, Arena memory, native tensors/AI matrices, LLVM codegen, FFI, package manager.">
+<meta property="og:url" content="https://sereincin.github.io/aero-book/">
+<meta property="og:site_name" content="Aero Programming Language Book">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Aero Programming Language — Official Book &amp; Documentation">
+<meta name="twitter:description" content="A systems programming language with Python ergonomics and C++ speed. Borrow checker, Arena memory, native AI tensors, LLVM backend.">
+<link rel="canonical" href="https://sereincin.github.io/aero-book/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "The Aero Programming Language Book",
+  "author": { "@type": "Person", "name": "Serein" },
+  "description": "A complete beginner's tutorial for the Aero systems programming language, covering all 18 chapters from environment setup to the LLVM compilation pipeline.",
+  "inLanguage": "en",
+  "bookFormat": "EBook",
+  "numberOfPages": 18,
+  "about": {
+    "@type": "Thing",
+    "name": "Aero Programming Language",
+    "description": "A systems programming language with borrow checker, Arena memory management, native tensor/matrix support, and LLVM codegen."
+  },
+  "educationalLevel": "Beginner",
+  "teaches": ["Variables and Types","Control Flow","Functions","Generics","Arrays and Tuples","Strings","References and Borrowing","Arena Memory Management","Tensors and Matrices","FFI Calling C","File IO and CLI","Package Manager","Compilation Pipeline"]
+}
+</script>
+<style>
+:root{ --bg:#0f172a; --fg:#e2e8f0; --accent:#38bdf8; --card:#1e293b; --muted:#94a3b8; }
+*{box-sizing:border-box}
+body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.7}
+.container{max-width:960px;margin:0 auto;padding:3rem 1.5rem}
+h1{font-size:2.6rem;margin:0 0 .5rem;background:linear-gradient(135deg,#38bdf8 0%,#a78bfa 50%,#f472b6 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{color:var(--muted);font-size:1.15rem;margin-bottom:3rem}
+.tagline{font-size:1.25rem;margin:1.5rem 0;color:#cbd5e1}
+.meta-row{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.5rem 0 2.5rem}
+.meta-row span{background:var(--card);padding:.35rem .8rem;border-radius:999px;font-size:.85rem;color:var(--accent);border:1px solid rgba(56,189,248,.2)}
+h2{font-size:1.5rem;margin:3rem 0 1rem;color:#f1f5f9;border-left:3px solid var(--accent);padding-left:.75rem}
+.toc{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.75rem}
+.toc a{display:block;padding:.65rem .9rem;background:var(--card);border-radius:.5rem;color:var(--fg);text-decoration:none;border:1px solid transparent;transition:all .15s}
+.toc a:hover{border-color:var(--accent);transform:translateY(-1px)}
+.toc .ch-num{color:var(--accent);font-weight:700;margin-right:.3rem}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
+.info-card{background:var(--card);padding:1.2rem;border-radius:.6rem;border-top:3px solid var(--accent)}
+.info-card h3{margin:0 0 .5rem;font-size:1rem;color:var(--accent)}
+.info-card p{margin:0;color:var(--muted);font-size:.9rem}
+.links{margin-top:2rem;display:flex;flex-wrap:wrap;gap:1rem}
+.links a{padding:.65rem 1.1rem;background:var(--accent);color:#0f172a;text-decoration:none;border-radius:.4rem;font-weight:600;display:inline-flex;align-items:center;gap:.4rem}
+.links a.secondary{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+footer{margin-top:4rem;padding-top:2rem;border-top:1px solid #334155;color:var(--muted);font-size:.85rem;text-align:center}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Aero Programming Language</h1>
+  <p class="subtitle">Official Book &mdash; Complete Tutorial &amp; Documentation</p>
+  <p class="tagline"><strong>Python-level ergonomics &times; C++-level speed &times; Native AI tensor support.</strong><br>A systems programming language with a borrow checker, Arena memory management, and LLVM codegen.</p>
+
+  <div class="meta-row">
+    <span>Aero 0.1.1</span>
+    <span>18 Chapters</span>
+    <span>Borrow Checker</span>
+    <span>Arena Memory</span>
+    <span>Native Tensors</span>
+    <span>LLVM Backend</span>
+    <span>FFI &amp; C Interop</span>
+    <span>Package Manager</span>
+    <span>JIT + AOT</span>
+    <span>No Garbage Collection</span>
+  </div>
+
+  <div class="links">
+    <a href="README.md">📖 Start Reading (Table of Contents)</a>
+    <a class="secondary" href="https://github.com/SereinCin/aero-lang">Aero Compiler on GitHub &rarr;</a>
+    <a class="secondary" href="00-preface.md">Read Preface &rarr;</a>
+  </div>
+
+  <h2>What You'll Learn</h2>
+  <div class="info-grid">
+    <div class="info-card"><h3>Foundation</h3><p>Variables, types, operators, control flow, functions &mdash; the building blocks every Aero program uses.</p></div>
+    <div class="info-card"><h3>Core Type System</h3><p>Generics, arrays, tuples, strings &mdash; with compile-time type inference and strict implicit-narrowing rejection.</p></div>
+    <div class="info-card"><h3>Borrow Checker</h3><p>References &amp;T borrowing with NLL (Non-Lexical Lifetimes). Catch dangling pointers and data races at compile time.</p></div>
+    <div class="info-card"><h3>Arena Memory</h3><p>Scope-based region allocation. Zero GC pauses, no per-object free. Fast and predictable.</p></div>
+    <div class="info-card"><h3>AI &amp; Tensors</h3><p>Built-in tensor types and <code>matmul</code>. Compile-time dimension checking for matrix multiplication.</p></div>
+    <div class="info-card"><h3>Systems Interop</h3><p><code>extern &quot;C&quot;</code> FFI, Aero.toml [link] directives, file IO, command-line arguments, package manager and testing.</p></div>
+    <div class="info-card"><h3>Compilation Pipeline</h3><p>Understand the full pipeline: lexer &rarr; parser &rarr; HIR &rarr; LLVM IR &rarr; optimized machine code.</p></div>
+    <div class="info-card"><h3>Appendices</h3><p>Built-in function cheat sheet, common error reference, and a feature comparison table with C and Rust.</p></div>
+  </div>
+
+  <h2>Full Table of Contents</h2>
+  <div class="toc">
+    <a href="00-preface.md"><span class="ch-num">00</span>Preface</a>
+    <a href="01-environment-and-first-program.md"><span class="ch-num">01</span>Environment &amp; First Program</a>
+    <a href="02-variables-and-types.md"><span class="ch-num">02</span>Variables &amp; Types</a>
+    <a href="03-operators-and-expressions.md"><span class="ch-num">03</span>Operators &amp; Expressions</a>
+    <a href="04-flow-control.md"><span class="ch-num">04</span>Control Flow</a>
+    <a href="05-functions.md"><span class="ch-num">05</span>Functions</a>
+    <a href="06-generics.md"><span class="ch-num">06</span>Generics</a>
+    <a href="07-arrays-and-tuples.md"><span class="ch-num">07</span>Arrays &amp; Tuples</a>
+    <a href="08-strings.md"><span class="ch-num">08</span>Strings</a>
+    <a href="09-references-and-borrowing.md"><span class="ch-num">09</span>References &amp; Borrowing</a>
+    <a href="10-arena-memory-management.md"><span class="ch-num">10</span>Arena Memory Management</a>
+    <a href="11-tensors-and-matrices.md"><span class="ch-num">11</span>Tensors &amp; Matrices</a>
+    <a href="12-ffi-calling-c.md"><span class="ch-num">12</span>FFI: Calling C</a>
+    <a href="13-file-io-and-cli-args.md"><span class="ch-num">13</span>File IO &amp; CLI Arguments</a>
+    <a href="14-package-manager-and-testing.md"><span class="ch-num">14</span>Package Manager &amp; Testing</a>
+    <a href="15-compilation-pipeline.md"><span class="ch-num">15</span>Compilation Pipeline Overview</a>
+    <a href="16-appendix-a-builtin-reference.md"><span class="ch-num">16</span>Appendix A: Built-in Reference</a>
+    <a href="17-appendix-b-common-errors.md"><span class="ch-num">17</span>Appendix B: Common Errors</a>
+    <a href="18-appendix-c-comparison-with-c-and-rust.md"><span class="ch-num">18</span>Appendix C: vs C and Rust</a>
+  </div>
+
+  <footer>
+    &copy; 2026 SereinCin &middot; Aero Programming Language &middot; MIT License &middot;
+    <a style="color:var(--muted)" href="https://github.com/SereinCin/aero-book">Source on GitHub</a>
+  </footer>
+</div>
+</body>
+</html>
