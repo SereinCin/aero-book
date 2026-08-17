@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://sereincin.github.io/aero-book/sitemap.xml
