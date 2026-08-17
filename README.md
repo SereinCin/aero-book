@@ -1,25 +1,20 @@
-# Aero — 官方文档
+# Aero — Official Documentation
 
-> **Aero** 是一门兼顾开发体验与运行速度的编译型系统语言，基于 LLVM 后端，具备借用检查、Arena 区域内存管理与原生张量/矩阵（matmul）支持。当前版本 **1.1.0**。
+> **Aero** is a compiled systems language that pairs developer ergonomics with native runtime speed. Built on an LLVM backend, it ships with a borrow checker, Arena-based region memory management, and first-class tensor/`matmul` support for AI workloads. Current version **1.1.0**.
 
-本仓库存放 Aero 编程语言的官方中文与英文文档。
+This repository hosts the official English documentation for the Aero programming language.
 
-## 文档结构
+## Contents (`en/`)
 
-- `zh/` 中文文档
-  - [指南](zh/指南.md) — 环境搭建、安装验证与 CLI 基本用法
-  - [API 参考](zh/API参考.md) — 语言特性、运算符优先级与完整 CLI 命令
-  - [Cookbook](zh/Cookbook.md) — 覆盖 8 个纯 crate 与 4 个 FFI 绑定 crate 的实例手册
-- `en/` 英文文档
-  - [Guide](en/guide.md)
-  - [API Reference](en/api-reference.md)
-  - [Cookbook](en/cookbook.md)
+- [Guide](en/guide.md) — environment setup, installation verification, and CLI basics
+- [API Reference](en/api-reference.md) — language features, operator precedence, and the full CLI command reference
+- [Cookbook](en/cookbook.md) — recipes spanning the 8 pure crates and 4 FFI-bound crates (`http`, `crypto`, `regex`, `net`)
 
-## 相关仓库
+## Related Repositories
 
-- [aero-lang](https://github.com/SereinCin/aero-lang) — Aero 编译器源码
-- [aero-lang-vscode](https://github.com/SereinCin/aero-lang-vscode) — VS Code 插件（语法高亮 + LSP 客户端）
+- [aero-lang](https://github.com/SereinCin/aero-lang) — the Aero compiler
+- [aero-lang-vscode](https://github.com/SereinCin/aero-lang-vscode) — VS Code extension (syntax highlighting + LSP client)
 
-## 许可
+## License
 
-文档基于 MIT 许可发布。Aero 编译器本体版权 Copyright (c) 2026 Serein。
+Documentation is released under the MIT License. The Aero compiler itself is Copyright (c) 2026 Serein.
