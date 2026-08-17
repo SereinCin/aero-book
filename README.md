@@ -1,11 +1,35 @@
-# Aero Documentation — Under Maintenance
+# Aero Official Documentation Repository
 
-**Aero 1.1.0 has been temporarily taken down** due to known bugs discovered
-after release.
+This repository stores the official bilingual tutorials for the Aero programming language, including complete Chinese and English learning materials.
 
-During the fix window this repository is **private**. Once the issues are
-resolved, the corrected documentation (1.1.x) will be published publicly.
+## Directory Structure
 
-We apologize for any inconvenience.
+```
+aero-book/
+├── README.md                    # This file
+└── docs/
+    ├── en/                      # English documentation
+    │   ├── README.md
+    │   ├── api/                 # API reference
+    │   ├── guides/              # Developer guides
+    │   └── tutorials/           # Step-by-step tutorials
+    ├── zh/                      # Chinese documentation
+    │   ├── README.md
+    │   ├── api/                 # API reference
+    │   ├── guides/              # Developer guides
+    │   └── tutorials/           # Step-by-step tutorials
+    └── 文档/                    # Chinese documentation (legacy)
+        ├── en/
+        └── zh/
+```
 
-— Serein, August 2026
+## Documentation Overview
+
+| Directory | Language | Content |
+|-----------|----------|---------|
+| `docs/en/` | English | Tutorials, guides, and API reference |
+| `docs/zh/` | Chinese | Tutorials, guides, and API reference |
+
+## License
+
+This documentation is part of the Aero project. All rights reserved.
