@@ -1,4 +1,4 @@
-﻿# Aero Language Guide
+# Aero Language Guide
 
 ## Introduction
 
@@ -27,7 +27,17 @@ aero
 
 ### VS Code Extension
 
-Install the official Aero extension from the VS Code marketplace for syntax highlighting, code completion, and inline diagnostics.
+The extension is **offline-only** (it is **not published on the VS Code
+Marketplace**). Download the latest `aero-lang-*.vsix` and install it from
+within VS Code via **Extensions → … → Install from VSIX**, or on the command
+line:
+
+```
+code --install-extension aero-lang-1.1.0.vsix
+```
+
+This provides syntax highlighting; for inline diagnostics, set
+`aero.lsp.executablePath` to your local `aero.exe`.
 
 ### Project Scaffolding
 
