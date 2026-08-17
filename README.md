@@ -10,7 +10,6 @@
   - [指南](zh/指南.md) — 环境搭建、安装验证与 CLI 基本用法
   - [API 参考](zh/API参考.md) — 语言特性、运算符优先级与完整 CLI 命令
   - [Cookbook](zh/Cookbook.md) — 覆盖 8 个纯 crate 与 4 个 FFI 绑定 crate 的实例手册
-  - [合规审查报告](zh/合规审查报告.md) — 源码许可与依赖合规性审查
 - `en/` 英文文档
   - [Guide](en/guide.md)
   - [API Reference](en/api-reference.md)
