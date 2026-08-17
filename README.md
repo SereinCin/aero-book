@@ -6,6 +6,7 @@ This repository stores the official bilingual tutorials for the Aero programming
 
 ```
 aero-book/
+├── LICENSE                      # MIT License
 ├── README.md                    # This file
 └── docs/
     ├── en/                      # English documentation
@@ -32,4 +33,4 @@ aero-book/
 
 ## License
 
-This documentation is part of the Aero project. All rights reserved.
+This documentation is licensed under the [MIT License](LICENSE).
