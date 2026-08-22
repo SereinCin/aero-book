@@ -19,9 +19,6 @@ aero-book/
     │   ├── api/                 # API reference
     │   ├── guides/              # Developer guides
     │   └── tutorials/           # Step-by-step tutorials
-    └── 文档/                    # Chinese documentation (legacy)
-        ├── en/
-        └── zh/
 ```
 
 ## Documentation Overview
