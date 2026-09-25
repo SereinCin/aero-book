@@ -14,7 +14,7 @@ Operators: `+` addition, `-` subtraction, `*` multiplication, `/` division, `-x`
 
 A few things to note:
 
-- **Integer division truncates**. `7 / 2` evaluates to `3`, not `3.5`. Aero 1.1.0 only has integers, no floating-point types. This is a limitation of the current version.
+- **Integer division truncates**. `7 / 2` evaluates to `3`, not `3.5`. When you want a fractional result, use a floating-point type (`f32`/`f64`): `7.0 / 2.0` gives `3.5`.
 - **Division by zero does not crash**. Aero checks at runtime whether the divisor is 0; if it is, it returns 0. However, relying on "division by zero returns 0" for logic is generally bad practice — it's better to ensure the divisor is not zero yourself.
 - **Precedence is the same as C**: `* /` bind tighter than `+ -`, and parentheses `( )` have the highest precedence.
 
@@ -36,7 +36,7 @@ print(3 != 4);    // true
 
 Six comparison operators: `<` `>` `<=` `>=` `==` `!=`. All results are `bool`.
 
-Both sides of a comparison must have the same type. `3 == 3.0` would be a compile-time error (no floating-point type, and no implicit conversion exists).
+Both sides of a comparison must have the same type. Comparing an `i64` value with an `f64` value is a compile-time error (`type mismatch: the two comparison operands expected i64, got f64`). Compare `3` with `4`, or `3.0` with `4.5` — don't mix integers and floats.
 
 ## Logical Operations: Short-Circuiting
 

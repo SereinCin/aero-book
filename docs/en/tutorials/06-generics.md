@@ -62,7 +62,7 @@ let nums = [1, 2, 3];
 print(first(nums));   // 1
 ```
 
-Note that the array length is fixed as `[T; 3]` — Aero 1.1.0 generics do not support "arrays of arbitrary length"; the length is part of the type (more on this in Chapter 7).
+Note that the array length is fixed as `[T; 3]` — Aero 1.2.1 generics do not support "arrays of arbitrary length"; the length is part of the type (more on this in Chapter 7).
 
 ## Generic Function Calling a Generic Function
 

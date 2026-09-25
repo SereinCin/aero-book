@@ -93,9 +93,17 @@ let x = 1;
 // let x = 2;   // error: variable `x` redeclared in the current scope
 ```
 
-## A Detail: No `const` Keyword
+## `const`: Read-Only Bindings
 
-Aero 1.1.0 does not have `const` — all variables can be reassigned. Making a value "read-only" relies on convention, not compiler enforcement. This will be improved in future versions.
+`const` declares a name that cannot be reassigned:
+
+```aero
+const MAX: i64 = 100;
+print("%d\n", MAX);   // 100
+// MAX = 200;         // error: a const cannot be reassigned
+```
+
+`let` declares an ordinary variable, which you can reassign at any time. When a value should stay put, write `const` and let the compiler enforce it.
 
 ## Exercises
 

@@ -37,7 +37,7 @@ Here, the Aero name is `string_len`, but the C symbol it looks for during linkin
 
 ## Type Restrictions
 
-The C ABI is quite old, and not all Aero types can pass through it. Allowed in 1.1.0:
+The C ABI is quite old, and not all Aero types can pass through it. Allowed in 1.2.1:
 
 | Position | Allowed Types |
 | --- | --- |
@@ -71,7 +71,7 @@ For example, calling the Windows API `GetTickCount` (returns milliseconds since 
 ```toml
 [package]
 name = "winpkg"
-version = "1.1.0"
+version = "0.1.0"
 
 [link]
 libs = ["kernel32"]   # link -lkernel32

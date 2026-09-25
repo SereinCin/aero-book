@@ -96,7 +96,7 @@ A reference must point to a real, existing variable — it cannot point to a tem
 
 ## References to References? Not Yet
 
-Aero 1.1.0's borrowing system is a streamlined version: it supports single-level `&T` / `&mut T`, but **does not** support references to references, storing references in arrays, returning references from functions, or other advanced patterns. Don't try to force it — the compiler will tell you what doesn't work. A full version of this system (closer to Rust's borrow checker) is on the roadmap; version 1.1.0 focuses on making the most common use cases work well.
+Aero 1.2.1's borrowing system is a streamlined version: it supports single-level `&T` / `&mut T`, but **does not** support references to references, storing references in arrays, returning references from functions, or other advanced patterns. Don't try to force it — the compiler will tell you what doesn't work. A full version of this system (closer to Rust's borrow checker) is on the roadmap; version 1.2.1 focuses on making the most common use cases work well.
 
 ## Exercises
 

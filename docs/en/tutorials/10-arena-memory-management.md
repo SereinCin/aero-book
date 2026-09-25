@@ -28,7 +28,7 @@ p[1] = 9;
 print(p[0] + p[1]);   // 16
 ```
 
-`a.alloc(n)` carves out `n` slots from the pool and returns an indexable pointer: `p[0]`, `p[1]` can be used directly. Each "slot" is 8 bytes (i64), so `alloc(2)` actually consumes 16 bytes of pool capacity.
+`a.alloc(n)` carves out `n` slots from the pool and returns an indexable pointer: `p[0]`, `p[1]` can be used directly. Each slot is 8 bytes (i64), so `alloc(2)` actually consumes 16 bytes of pool capacity. The index may be a variable, including one computed at runtime: `p[i] = 7;`.
 
 Multiple allocations line up sequentially:
 
@@ -43,11 +43,17 @@ print(p[0] + q[0]);   // 11
 
 ## What Happens When the Pool is Full
 
-If `alloc` exceeds the remaining capacity, it calls `abort()` and terminates the program immediately. This is "better safe than sorry" — an arena overflow is the programmer's fault, and it fails loudly rather than silently corrupting memory.
+If `alloc` exceeds the remaining capacity, it reports the problem and terminates the program. This is "better safe than sorry" — an arena overflow is the programmer's fault, so it fails loudly rather than silently corrupting memory. Running `aero run` prints:
+
+```
+arena overflow: alloc() needs 2 slot(s) = 16 bytes, capacity is 8 bytes
+```
+
+The exit code is 3.
 
 ```aero
 let a = arena(8);
-// let p = a.alloc(2);   // needs 16 bytes, pool only has 8, program terminates immediately
+// let p = a.alloc(2);   // needs 16 bytes, pool only has 8, the program stops here
 ```
 
 ## reset: Reuse
@@ -100,11 +106,11 @@ Why? An arena is the "sole manager" of its block. Copying it would mean two mana
 - Need to **allocate in batches** and free together → arena, fast and simple.
 - Need a **single object to outlive its scope** (e.g., a function returning a heap-allocated string to the caller) → use the string library's malloc approach (`int_to_str` returns + caller calls `str_free`).
 
-Aero 0.1 does not yet have the ability to pass an arena pointer out of a function as a return value, so cross-function memory can only go through the malloc family for now. Both systems coexist in 0.1, each with their own purpose.
+Aero does not yet have the ability to pass an arena pointer out of a function as a return value, so cross-function memory can only go through the malloc family for now. Both systems coexist, each with its own purpose.
 
 ## Exercises
 
 1. Write a loop: each iteration allocates 1 slot from an arena and writes the iteration number, then confirm that the arena is automatically freed after the loop ends (using `a` outside the loop should cause a compile error).
-2. Cause an arena overflow: capacity 16, `alloc(3)`, observe the program termination behavior.
+2. Cause an arena overflow: capacity 16, `alloc(3)`, and observe the error message and the exit code (3).
 3. Use an arena to simulate "packing 5 student scores and summing them."
 4. Think: Why can the literal `arena(64)` only appear in a `let` initializer (it cannot be placed in an array or passed as a function argument)? Hint: Think about who manages its lifetime.

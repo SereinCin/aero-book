@@ -2,7 +2,7 @@
 
 A beginner's guide to the Aero language, written for humans. Goal: after reading this book, you'll be able to write complete, runnable Aero programs that compile into standalone executables.
 
-Corresponding Aero version: **1.2.0** (2026).
+Corresponding Aero version: **1.2.1** (2026).
 
 ## Table of Contents
 

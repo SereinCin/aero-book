@@ -78,24 +78,35 @@ while (i <= 100) {
 
 `%` 是取模（余数）。`i % 3 == 0` 表示 i 能被 3 整除。
 
-## 当前没有的：break 和 continue
+## break 和 continue
 
-Aero 0.1 的 while **没有** `break` 和 `continue`。想提前退出循环，只能用条件控制：
+`break` 立刻结束整个循环，`continue` 跳过本轮剩下的部分、直接进入下一轮：
 
 ```aero
-// 模拟 break：找到第一个大于 100 的 7 的倍数
+// break：100 以内第一个 7 的倍数，找到就停
 let i = 1;
-let found = 0;   // 0 = 假，1 = 真，Aero 0.1 用整数模拟
-while (i <= 1000 && found == 0) {
+while (i <= 100) {
     if (i % 7 == 0) {
-        print("%d\n", i);
-        found = 1;
+        print("%d\n", i);   // 7
+        break;
     }
     i = i + 1;
 }
 ```
 
-这是当前版本的已知短板，后续会补上。
+```aero
+// continue：跳过 3 的倍数，把其余的数加起来
+let i = 0;
+let sum = 0;
+while (i < 10) {
+    i = i + 1;
+    if (i % 3 == 0) { continue; }
+    sum = sum + i;   // 1+2+4+5+7+8+10 = 37
+}
+print("%d\n", sum);
+```
+
+两者都只能写在循环体里，写在循环外会编译报错。
 
 ## 作用域提醒
 

@@ -91,7 +91,7 @@ A type mismatch between the two tensors will also cause an error.
 
 ## What's Not Here Yet
 
-In Aero 1.1.0, Tensor only has zero-initialization and matmul — no addition, transpose, dot product, etc. It is the first building block of "AI-native" support — subsequent versions will gradually add operators and connect to GPU.
+In Aero 1.2.1, Tensor only has zero-initialization and matmul — no addition, transpose, dot product, etc. It is the first building block of "AI-native" support — subsequent versions will gradually add operators and connect to GPU.
 
 ## GPU Kernel: A Placeholder for the Future
 
@@ -101,7 +101,7 @@ Aero supports declaring GPU kernels:
 extern "gpu" fn add_kernel(a: i64) {}
 ```
 
-`extern "gpu"` declares a function that lives on the GPU. In 1.1.0 it is merely "valid syntax, doesn't execute, cannot be called from CPU code" — the real NVPTX backend is on the roadmap. Just know that it exists; you won't use it yet.
+`extern "gpu"` declares a function that lives on the GPU. In 1.2.1 it is merely "valid syntax, doesn't execute, cannot be called from CPU code" — the real NVPTX backend is on the roadmap. Just know that it exists; you won't use it yet.
 
 ## Exercises
 

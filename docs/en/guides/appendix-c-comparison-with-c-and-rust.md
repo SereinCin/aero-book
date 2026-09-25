@@ -8,7 +8,7 @@ Aero sits between C and Rust: the syntax and memory feel are like C, while type 
 | --- | --- | --- |
 | C | `int x = 1;` | Must specify type |
 | Rust | `let x = 1;` | Type inference, immutable by default (`mut` for mutability) |
-| Aero | `let x = 1;` | Type inference, **mutable by default**, no `const` |
+| Aero | `let x = 1;` | Type inference, **mutable by default** (write `const` when you need read-only) |
 
 Aero's `let` variables can be reassigned directly with `x = 2`, which is like C and unlike Rust (Rust requires `let mut x`).
 
@@ -21,7 +21,7 @@ Aero's `let` variables can be reassigned directly with `x = 2`, which is like C 
 | — | `usize` | None (use `i64`) |
 | `_Bool` | `bool` | `bool` |
 
-Aero has only four basic types: `i32`/`i64`/`bool`/`str`. No `unsigned`, no floating point (version 1.1.0). Integer literals default to `i64` and can be annotated to adapt to `i32`.
+Aero's basic types are `i32`/`i64`/`f32`/`f64`/`bool`/`str`. There is no `unsigned` (`u64` reports `unknown type`). Integer literals default to `i64` and can be annotated to adapt to `i32`; a floating-point literal is written with a decimal point, like `1.5`.
 
 ## Strings
 
@@ -45,7 +45,7 @@ Aero's `str` is the same as C's `char*` and can be passed directly to C function
 
 Aero's borrow rules are a simplified version of Rust's rules:
 
-| Rule | Rust | Aero 1.1.0 |
+| Rule | Rust | Aero 1.2.1 |
 | --- | --- | --- |
 | Multiple immutable borrows coexist | ✅ | ✅ |
 | Mutable borrow is exclusive | ✅ | ✅ |
@@ -76,7 +76,7 @@ fn max<T>(a: T, b: T) -> T {
 }
 ```
 
-All three are handled at compile time (Aero and Rust both use monomorphization). The difference: Rust uses traits to constrain "what operations T supports," while Aero 1.1.0 simplifies this to "check only at instantiation" — looser constraints, errors caught later.
+All three are handled at compile time (Aero and Rust both use monomorphization). The difference: Rust uses traits to constrain "what operations T supports," while Aero 1.2.1 simplifies this to "check only at instantiation" — looser constraints, errors caught later.
 
 ## Arrays
 
@@ -84,7 +84,7 @@ All three are handled at compile time (Aero and Rust both use monomorphization).
 | --- | --- | --- |
 | `int a[3]`, length is part of type | `[i32; 3]`, length is part of type | `[i64; 3]`, length is part of type |
 
-C and Aero do not perform bounds checking (C by tradition, Aero by trade-off for version 1.1.0); Rust's `[]` indexing does bounds checking by default (in debug mode). For tuples, Aero's `(10, true)` is similar to Rust's `(i64, bool)`, but Aero uses `t[0]` for access (Rust uses `t.0`).
+C and Aero's native arrays do not perform bounds checking (C by tradition, Aero by trade-off for performance); Rust's `[]` indexing does bounds checking by default (in debug mode). When you want bounds checking, use `Vec`'s `get`/`set`. For tuples, Aero's `(10, true)` is similar to Rust's `(i64, bool)`, but Aero uses `t[0]` for access (Rust uses `t.0`).
 
 ## Overview Table
 
@@ -98,8 +98,8 @@ C and Aero do not perform bounds checking (C by tradition, Aero by trade-off for
 | Generics | No (macros) | Yes (traits) | Yes (relaxed) |
 | FFI to C | Native | extern | extern "C" |
 | AI Matrix | No | No | `tensor` + `matmul` |
-| Array Bounds Check | No | In debug | No (1.1.0) |
-| Floating Point | Yes | Yes | No (1.1.0) |
+| Array Bounds Check | No | In debug | No |
+| Floating Point | Yes | Yes | Yes (`f32`/`f64`) |
 
 ## If You're Coming from C
 
@@ -117,6 +117,6 @@ C and Aero do not perform bounds checking (C by tradition, Aero by trade-off for
 
 ## Closing
 
-At this point, you've gone through all of Aero's 1.1.0 capabilities: variables, control flow, functions, generics, arrays and tuples, strings, borrowing, Arena, Tensor, FFI, file I/O, command line, packages and testing. What's left is to write code.
+At this point, you've gone through all of Aero's capabilities: variables, control flow, functions, generics, arrays and tuples, strings, borrowing, Arena, Tensor, FFI, file I/O, command line, packages and testing. What's left is to write code.
 
-Aero is still young, and there's plenty missing (floating point, break/continue, const, containers, classes, modules...). But the skeleton is right: do more work at compile time, keep the runtime clean. This book will be updated alongside the language.
+Aero is still young, and there's plenty missing (containers, classes, modules, macros...). But the skeleton is right: do more work at compile time, keep the runtime clean. This book will be updated alongside the language.

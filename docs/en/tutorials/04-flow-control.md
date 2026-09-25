@@ -78,24 +78,35 @@ while (i <= 100) {
 
 `%` is the modulo (remainder) operator. `i % 3 == 0` means i is divisible by 3.
 
-## Currently Missing: break and continue
+## break and continue
 
-Aero 1.1.0's while loop does **not** have `break` or `continue`. To exit a loop early, you must control it with conditions:
+`break` ends the whole loop immediately; `continue` skips the rest of the current round and moves straight on to the next one:
 
 ```aero
-// Simulating break: find the first multiple of 7 greater than 100
+// break: stop at the first multiple of 7 within 100
 let i = 1;
-let found = 0;   // 0 = false, 1 = true, Aero 1.1.0 simulates with integers
-while (i <= 1000 && found == 0) {
+while (i <= 100) {
     if (i % 7 == 0) {
-        print("%d\n", i);
-        found = 1;
+        print("%d\n", i);   // 7
+        break;
     }
     i = i + 1;
 }
 ```
 
-This is a known shortcoming of the current version, and will be addressed in a future release.
+```aero
+// continue: skip multiples of 3 and add up the rest
+let i = 0;
+let sum = 0;
+while (i < 10) {
+    i = i + 1;
+    if (i % 3 == 0) { continue; }
+    sum = sum + i;   // 1+2+4+5+7+8+10 = 37
+}
+print("%d\n", sum);
+```
+
+Both may only appear inside a loop body; using either one outside a loop is a compile error.
 
 ## Scope Reminder
 

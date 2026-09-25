@@ -27,7 +27,7 @@ print("%d\n", n);   // 11, number of bytes written
 let src = read_file(arg(1));
 if (len(src) == 0) {
     print("cannot read %s\n", arg(1));
-    // There is no way to return from the main program in 1.1.0, so execution continues
+    // There is no way to return from the main program in 1.2.1, so execution continues
 }
 let n = write_file(arg(2), src);
 print("wrote %d bytes\n", n);

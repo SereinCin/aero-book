@@ -83,7 +83,11 @@ This is not a compile error, but memory gradually grows at runtime. **Symptom**:
 
 ## Arena Overflow
 
-**Symptom**: The program suddenly terminates (`abort`) at runtime.
+```
+arena overflow: alloc() needs 2 slot(s) = 16 bytes, capacity is 8 bytes
+```
+
+**Symptom**: The program prints the line above and terminates with exit code 3 at runtime.
 
 **Cause**: The memory requested by `alloc` exceeds the capacity of `arena(N)`. **Fix**: Increase `N`, or review the allocation logic.
 
@@ -128,6 +132,12 @@ The compiler may not always catch this (constant-length literals are checked at 
 ## Division by Zero
 
 Aero checks for division by zero; dividing by zero returns 0 and does not crash. However, relying on "division by zero returns 0" for logic is a bad habit — it's recommended to ensure the divisor is not zero yourself.
+
+## No Squiggles in the Editor
+
+You installed the Aero extension (`aero-lang`) in VS Code, but the editor never flags a compile error.
+
+**Cause**: Syntax highlighting works out of the box, but compile errors need the extension to reach the compiler's language server. **Fix**: Make sure the extension is 1.2.1 or newer, and point `aero.lsp.executablePath` at the full path of `aero.exe`. The diagnostics payload was only fixed in 1.2.1 — earlier versions had the path configured and every diagnostic was still dropped by the editor.
 
 ## What if You Can't Remember
 

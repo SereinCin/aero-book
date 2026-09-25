@@ -43,7 +43,7 @@ print(len_arr(empty));  // see exercise below
 
 ## Array Pitfall: No Bounds Checking
 
-Aero 1.1.0's **native arrays** (`[T; N]`) **do not perform bounds checking** on access (the compiler only checks constant-length literals at compile time; out-of-bounds access at runtime is undefined behavior). Don't write:
+Aero 1.2.1's **native arrays** (`[T; N]`) **do not perform bounds checking** on access (the compiler only checks constant-length literals at compile time; out-of-bounds access at runtime is undefined behavior). Don't write:
 
 ```aero
 let arr = [1, 2, 3];
@@ -90,7 +90,7 @@ print(r[1]);   // 2
 - Same type of elements, logically variable-length (iterating with loops) → Array.
 - A small number of values of different types packed together → Tuple.
 
-Note that Aero 1.1.0 arrays **do not support changing length at runtime** (no push/pop), and you cannot use a variable for the array length (the `n` in `[i64; n]` must be a compile-time constant).
+Note that Aero 1.2.1 arrays **do not support changing length at runtime** (no push/pop), and you cannot use a variable for the array length (the `n` in `[i64; n]` must be a compile-time constant).
 
 ## Exercises
 

@@ -63,14 +63,17 @@ print(s[1]);     // 101, 'e'
 ```
 
 - `len(s)` returns the number of characters (bytes).
-- `s[i]` returns the i-th byte, with type `i64` (Aero 1.1.0 does not have a single-character type). The ASCII code for `'h'` is 104, so `s[0]` is 104.
+- `s[i]` returns the i-th byte, with type `i64` (Aero has no single-character type). The ASCII code for `'h'` is 104, so `s[0]` is 104.
 
-If you want to print a specific character, `%c` won't work — Aero 1.1.0's format string only supports `%d` and `%s`. To convert a byte back to a string, use `substr`:
+To print the character itself, use `%c`:
 
 ```aero
 let s = "hello";
-print("%s\n", substr(s, 1, 2));   // e
+print("%c\n", s[0]);              // h
+print("%s\n", substr(s, 1, 2));   // e, or turn the byte back into a substring
 ```
+
+The format string supports four conversions: `%d` (integer), `%s` (string), `%c` (print a byte as a character) and `%f` (floating point).
 
 ## Substrings: substr
 

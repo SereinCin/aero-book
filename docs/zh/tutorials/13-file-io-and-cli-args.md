@@ -27,7 +27,7 @@ print("%d\n", n);   // 11，写入的字节数
 let src = read_file(arg(1));
 if (len(src) == 0) {
     print("cannot read %s\n", arg(1));
-    // 这里没有 return 语句退出主程序的能力，0.1 版先继续往下走
+    // 这里没有 return 语句退出主程序的能力，1.2.1 版先继续往下走
 }
 let n = write_file(arg(2), src);
 print("wrote %d bytes\n", n);
