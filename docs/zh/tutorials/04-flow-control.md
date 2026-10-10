@@ -136,6 +136,43 @@ while (i < 5) {
 
 `sum` 应该声明在循环外面。
 
+
+## Aero 1.2.5 新增：Match 表达式
+
+> 以下为 Aero 1.2.5 新增内容。
+
+`match` 是模式匹配，比 `if / else if` 链更简洁、更不易漏分支。
+
+``ero
+let x = 3;
+match x {
+    1 => print("one\n"),
+    2 => print("two\n"),
+    3 => print("three\n"),
+    _ => print("other\n"),
+}
+// 打印 three
+``
+
+`_` 是通配符，匹配其他所有情况。match 必须**穷尽**——所有可能的值都要有对应分支。
+
+### Match 守卫
+
+每个分支可以加 `if` 条件：
+
+``ero
+let score = 85;
+match score {
+    s if s >= 90 => print("A\n"),
+    s if s >= 80 => print("B\n"),
+    s if s >= 70 => print("C\n"),
+    _ => print("D/F\n"),
+}
+// 打印 B
+``
+
+`s` 把 match 的值绑定给分支体，`if` 条件可以引用它。
+
 ## 练习
 
 1. 打印 1 到 20 之间所有奇数。

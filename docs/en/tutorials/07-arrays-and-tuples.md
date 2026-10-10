@@ -92,6 +92,38 @@ print(r[1]);   // 2
 
 Note that Aero 1.2.1 arrays **do not support changing length at runtime** (no push/pop), and you cannot use a variable for the array length (the `n` in `[i64; n]` must be a compile-time constant).
 
+
+## Aero 1.2.5: Tuple Pattern Matching
+
+> New in Aero 1.2.5.
+
+Tuples can appear directly inside `match` with a sub-pattern in each position:
+
+``aero
+let point = (3, 4);
+match point {
+    (0, 0) => print("origin\n"),
+    (x, 0) => print("on x-axis\n"),
+    (0, y) => print("on y-axis\n"),
+    (x, y) => print("(%d, %d)\n", x, y),
+}
+// prints (3, 4)
+``
+
+In `(x, 0)`, literal `0` matches the first component; `x` binds the second.
+
+### With guards
+
+``aero
+let t = (3, 4);
+match t {
+    (a, b) if a > b => print("first > second\n"),
+    (a, b) if a < b => print("first < second\n"),
+    _ => print("equal\n"),
+}
+// prints first < second
+``
+
 ## Exercises
 
 1. Write a function `sum3(arr: [i64; 3]) -> i64` that returns the sum of three elements, and verify it with `[5, 6, 7]`.

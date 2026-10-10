@@ -116,6 +116,37 @@ fn g() {
 }
 ```
 
+
+## Aero 1.2.5: Closures
+
+> New in Aero 1.2.5.
+
+A closure is an anonymous function declared inline with `|params| -> RetType { body }`:
+
+``aero
+let square = |x: i64| -> i64 { x * x };
+print(square(5));   // 25
+``
+
+### Multi-statement block body
+
+``aero
+let f = |x: i64| -> i64 {
+    let y = x * 2;
+    let z = y + 1;
+    z
+};
+print(f(5));   // 11
+``
+
+The last expression in a block body is the return value — no `return` keyword needed.
+
+### Closures vs named `fn`
+
+- Closures require explicit type annotations for params and return type.
+- Closures do not capture variables from the outer scope yet.
+- Invocation is identical: `closure(args)` works like calling a named function.
+
 ## Exercises
 
 1. Write a `max2(a, b) -> i64` that returns the larger number; then write `max3(a, b, c)` that uses `max2` twice.

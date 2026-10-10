@@ -92,6 +92,38 @@ print(r[1]);   // 2
 
 注意 Aero 1.2.1 的数组**不支持在运行时改变长度**（没有 push/pop），也没法用变量做数组长度（`[i64; n]` 的 n 必须是编译期常量）。
 
+
+## Aero 1.2.5 新增：Tuple 模式匹配
+
+> 以下为 Aero 1.2.5 新增内容。
+
+元组可以直接放进 `match`，每个位置写一个子 pattern：
+
+``ero
+let point = (3, 4);
+match point {
+    (0, 0) => print("origin\n"),
+    (x, 0) => print("on x-axis\n"),
+    (0, y) => print("on y-axis\n"),
+    (x, y) => print("(%d, %d)\n", x, y),
+}
+// 打印 (3, 4)
+``
+
+`(x, 0)` 里 `0` 是字面量匹配，`x` 是绑定。
+
+### 带 guard
+
+``ero
+let t = (3, 4);
+match t {
+    (a, b) if a > b => print("first > second\n"),
+    (a, b) if a < b => print("first < second\n"),
+    _ => print("equal\n"),
+}
+// 打印 first < second
+``
+
 ## 练习
 
 1. 写一个函数 `sum3(arr: [i64; 3]) -> i64` 返回三个元素之和，用 `[5, 6, 7]` 验证。

@@ -136,6 +136,43 @@ while (i < 5) {
 
 `sum` should be declared outside the loop.
 
+
+## Aero 1.2.5: Match Expressions
+
+> New in Aero 1.2.5.
+
+`match` is pattern matching — cleaner and harder to miss branches than `if / else if` chains.
+
+``aero
+let x = 3;
+match x {
+    1 => print("one\n"),
+    2 => print("two\n"),
+    3 => print("three\n"),
+    _ => print("other\n"),
+}
+// prints three
+``
+
+`_` is the wildcard — "anything else". Match must be **exhaustive** — every possible value needs a branch.
+
+### Match Guards
+
+Add an `if` condition to any branch:
+
+``aero
+let score = 85;
+match score {
+    s if s >= 90 => print("A\n"),
+    s if s >= 80 => print("B\n"),
+    s if s >= 70 => print("C\n"),
+    _ => print("D/F\n"),
+}
+// prints B
+``
+
+`s` binds the match value inside the branch so the guard can reference it.
+
 ## Exercises
 
 1. Print all odd numbers from 1 to 20.
